@@ -1,6 +1,5 @@
 package com.utp.notasusuario.entities;
- 
-import javax.persistence.CascadeType;
+  
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,13 +10,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name="notas")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Notas {
 		
 	@Id
@@ -32,7 +36,7 @@ public class Notas {
 	private String notaComentario;
 	
 	
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_usuario")
 	 private Usuario usuario;
 }

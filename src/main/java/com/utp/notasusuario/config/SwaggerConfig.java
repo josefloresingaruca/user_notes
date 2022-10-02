@@ -1,5 +1,6 @@
 package com.utp.notasusuario.config;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -15,7 +16,7 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("com.utp.notasusuario")).paths(PathSelectors.any())
+               .apis(RequestHandlerSelectors.basePackage("com.utp.notasusuario")).paths(PathSelectors.any())
                 .build();
-    }
+   }
 }

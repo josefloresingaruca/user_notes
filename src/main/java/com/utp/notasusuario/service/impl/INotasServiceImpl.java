@@ -20,15 +20,19 @@ public class INotasServiceImpl  implements INotasService{
 	@Override
 	public List<NotasDTO> listarNotas() {
 		// TODO Auto-generated method stub
-		return NotasMapper.INSTANCE.notasListToNotasDTOList( notasRepository.findAll()) ;
+		 List<Notas> lista=notasRepository.findAll();
+		 System.out.println(lista.size());
+		return NotasMapper.INSTANCE.notasListToNotasDTOList( lista) ;
 	}
 
 	@Override
 	public String registrarNotas(NotasCreateDTO notasCreateDTO) {
 		// TODO Auto-generated method stub
 		Notas notas=  NotasMapper.INSTANCE.notasCreateDTOToNotas(notasCreateDTO);
-		Notas notaEntity=notasRepository.save(notas);
-		long resultado = notaEntity.getId();
+		 
+		Notas notaEntity =notasRepository.save(notas);
+		
+	    long resultado = notaEntity.getId();
 		return "valor :"+resultado;
 	}
 
