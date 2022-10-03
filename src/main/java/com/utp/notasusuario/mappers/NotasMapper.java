@@ -17,5 +17,7 @@ public interface NotasMapper {
 	List<NotasDTO> notasListToNotasDTOList(List<Notas> listaNotas);
 
 	Notas notasCreateDTOToNotas(NotasCreateDTO notasCreateDTO);
+
+	NotasDTO notasToNotasDTO(Notas notas);
 	
 }

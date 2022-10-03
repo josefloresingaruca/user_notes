@@ -26,14 +26,13 @@ public class INotasServiceImpl  implements INotasService{
 	}
 
 	@Override
-	public String registrarNotas(NotasCreateDTO notasCreateDTO) {
+	public NotasDTO registrarNotas(NotasCreateDTO notasCreateDTO) {
 		// TODO Auto-generated method stub
 		Notas notas=  NotasMapper.INSTANCE.notasCreateDTOToNotas(notasCreateDTO);
 		 
 		Notas notaEntity =notasRepository.save(notas);
-		
-	    long resultado = notaEntity.getId();
-		return "valor :"+resultado;
+		 
+		return  NotasMapper.INSTANCE.notasToNotasDTO(notaEntity);
 	}
 
 

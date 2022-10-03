@@ -2,6 +2,9 @@ package com.utp.notasusuario.controllers;
 
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +38,7 @@ public class NotasController {
 	
 	@ApiOperation(value="Registra la información de la nota de usuario",notes="Registra la información de la nota de usuario")
 	@PostMapping("/notas") 
-	public  ResponseEntity<?> registrarNotas(@RequestBody NotasCreateDTO notasCreateDTO) {
-		return  new ResponseEntity<> ( notasService.registrarNotas(notasCreateDTO),HttpStatus.OK);
+	public  ResponseEntity<NotasDTO> registrarNotas(@Valid @RequestBody NotasCreateDTO notasCreateDTO) {
+		return  new ResponseEntity<> ( notasService.registrarNotas(notasCreateDTO),HttpStatus.CREATED);
 	}
 }
